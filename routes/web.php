@@ -8,13 +8,16 @@ use App\Http\Controllers\Auth\LoginController as AuthLoginController;
 use App\Http\Controllers\Employees\LoginController as EmployeesLoginController;
 
 // Routes for guest users
+// Routes for guest users
 Route::middleware('guest')->group(function () {
     Route::get('/', [GuestController::class, 'index'])->name('home');
     Route::get('/employees/create', [EmployeeController::class, 'create'])->name('employees.create');
     Route::post('/employees', [EmployeeController::class, 'store'])->name('employees.store');
-    Route::get('/auth/google', [EmployeesLoginController::class, 'redirectToGoogle']); // Menggunakan alias yang telah diberikan
-    Route::get('/auth/google/callback', [EmployeesLoginController::class, 'handleGoogleCallback']); // Menggunakan alias yang telah diberikan
+    Route::get('/employees/{employee}/profile', [EmployeeController::class, 'profile'])->name('employees.profile');
+    Route::get('/auth/google', [EmployeesLoginController::class, 'redirectToGoogle']);
+    Route::get('/auth/google/callback', [EmployeesLoginController::class, 'handleGoogleCallback']);
 });
+
 
 // Default authentication routes
 Auth::routes();
@@ -29,6 +32,9 @@ Route::middleware('auth')->group(function () {
     Route::put('/employees/{employee}', [EmployeeController::class, 'update'])->name('employees.update');
     Route::get('/employees/{employee}', [EmployeeController::class, 'show'])->name('employees.show');
     Route::delete('/employees/{employee}', [EmployeeController::class, 'destroy'])->name('employees.destroy');
+
+    // Route untuk upload foto profil karyawan
+    Route::post('/employees/{employee}/upload-photo', [EmployeeController::class, 'uploadPhoto'])->name('employees.upload_photo');
 });
 
 // Protected routes for managing admins

@@ -31,6 +31,7 @@
                                         <h6 class="mb-0 text-sm">{{ $admin->email }}</h6>
                                     </div>
                                 </td>
+                                
                                 <td>
                                     <div role="group" aria-label="Basic example">
                                         <a class="btn bg-gradient-info mb-3" href="{{ route('admins.edit', $admin->id) }}">Edit</a>

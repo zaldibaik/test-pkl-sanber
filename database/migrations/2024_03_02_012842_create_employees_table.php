@@ -4,10 +4,12 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-return new class extends Migration
+class CreateEmployeesTable extends Migration
 {
     /**
      * Run the migrations.
+     *
+     * @return void
      */
     public function up()
     {
@@ -15,17 +17,22 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('position');
-            $table->decimal('salary', 100,);
+            $table->decimal('salary', 10, 2);
+            $table->string('address')->nullable();
+            $table->string('country')->nullable();
+            $table->string('postal_code')->nullable();
+            $table->text('about')->nullable();
             $table->timestamps();
         });
     }
-    
 
     /**
      * Reverse the migrations.
+     *
+     * @return void
      */
-    public function down(): void
+    public function down()
     {
         Schema::dropIfExists('employees');
     }
-};
+}

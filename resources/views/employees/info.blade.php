@@ -7,11 +7,9 @@
     </div>
     <div class="card card-body mx-3 mx-md-4 mt-n6">
         <div class="row gx-4 mb-2">
-
             <div class="col-auto">
-
                 <div class="avatar avatar-xl position-relative">
-                    <img src="../assets/img/bruce-mars.jpg" alt="profile_image" class="w-100 border-radius-lg shadow-sm">
+                    <img src="{{ $employee->profile_photo_path }}" alt="profile_image" class="w-100 border-radius-lg shadow-sm">
                 </div>
             </div>
             <div class="col-auto my-auto">
@@ -43,7 +41,7 @@
                     </div>
                     <div class="card-body p-3">
                         <!-- Profile content -->
-                        <p class="text-sm">Hi, I’m Alec Thompson, Decisions: If you can’t decide, the answer is no. If two equally difficult paths, choose the one more painful in the short term (pain avoidance is creating an illusion of equality).</p>
+                        <p class="text-sm">{{ $employee->about }}</p>
                         <hr class="horizontal gray-light my-4">
                         <ul class="list-group">
                             <li class="list-group-item border-0 ps-0 pt-0 text-sm"><strong class="text-dark">Name: {{ $employee->name }}</strong></li>
@@ -53,16 +51,24 @@
                                 <strong class="text-dark text-sm">Social:</strong> &nbsp;
                                 <!-- Social media links -->
                             </li>
+                            <li class="list-group-item border-0 ps-0 pb-0">
+                                <strong class="text-dark text-sm">Address: {{ $employee->address }}</strong>
+                            </li>
+                            <li class="list-group-item border-0 ps-0 pb-0">
+                                <strong class="text-dark text-sm">Country: {{ $employee->country }}</strong>
+                            </li>
+                            <li class="list-group-item border-0 ps-0 pb-0">
+                                <strong class="text-dark text-sm">Postal Code: {{ $employee->postal_code }}</strong>
+                            </li>
                         </ul>
                     </div>
                 </div>
             </div>
         </div>
         <div class="col-lg-6">
-        <a href="{{ route('employees.index') }}" class="btn btn-danger w-50 mt-2">Back</a>
-        <a href="{{ route('employees.edit', $employee->id) }}" class="btn btn-primary w-50">Edit Profile</a>
+            <a href="{{ route('employees.index') }}" class="btn btn-danger w-50 mt-2">Back</a>
+            <a href="{{ route('employees.edit', $employee->id) }}" class="btn btn-primary w-50">Edit Profile</a>
+        </div>
     </div>
-    </div>
-</div>
 </div>
 @endsection

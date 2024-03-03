@@ -11,11 +11,13 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
     <!-- CSS Files -->
     <link id="pagestyle" href="../assets/css/material-dashboard.css?v=3.1.0" rel="stylesheet" />
-
-    @vite(['resources/sass/app.scss', 'resources/js/app.js'])
-
-    <nav class="navbar navbar-expand-md navbar-gradient-dark shadow-sm ">
+</head>
+<body>
+    <nav class="navbar navbar-expand-md navbar-gradient-dark shadow-sm">
         <div class="container">
+            <a class="navbar-brand" href="{{ route('home') }}">
+                {{ config('app.name', 'Laravel') }}
+            </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -27,14 +29,13 @@
                         <a class="nav-link" href="{{ route('home') }}">{{ __('home') }}</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">{{ __('profil karyawan') }}</a>
-                    </li>
-                    <li class="nav-item">
                         <a class="nav-link" href="{{ route('employees.create') }}">{{ __('daftar karyawan') }}</a>
                     </li>
                 </ul>
                 
-                <ul class="navbar-nav ms-auto ">
+                <!-- Right Side Of Navbar -->
+                <ul class="navbar-nav ms-auto">
+                    <!-- Authentication Links -->
                     @guest
                     @if (Route::has('login'))
                     <li class="nav-item">
@@ -64,9 +65,12 @@
                             </form>
                         </div>
                     </li>
-
                     @endguest
                 </ul>
             </div>
         </div>
     </nav>
+
+    <!-- Your content goes here -->
+</body>
+</html>
