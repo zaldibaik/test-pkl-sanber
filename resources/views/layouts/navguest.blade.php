@@ -32,6 +32,10 @@
                         <a class="nav-link" href="{{ route('employees.create') }}">{{ __('daftar karyawan') }}</a>
                     </li>
                 </ul>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('keluarga.create') }}">{{ __('daftar karyawan') }}</a>
+                </li>
+            </ul>
                 
                 <!-- Right Side Of Navbar -->
                 <ul class="navbar-nav ms-auto">

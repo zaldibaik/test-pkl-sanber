@@ -24,6 +24,15 @@
                 <a class="navbar-brand" href="{{ url('') }}">
                     Zaldi
                 </a>
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('employees.create') }}">{{ __('daftar karyawan') }}</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('keluarga.create') }}">{{ __('keluarga') }}</a>
+                    </li>
+                </ul>
+                </ul>
                 </ul>
                 <ul class="navbar-nav ms-auto ">
                     @guest
