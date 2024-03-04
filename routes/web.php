@@ -21,11 +21,7 @@ Route::middleware('guest')->group(function () {
 
     // Keluarga
     Route::get('/keluarga/create', [KeluargaController::class, 'create'])->name('keluarga.create');
-    Route::post('/keluarga', [KeluargaController::class, 'store'])->name('keluarga.store');
-    Route::get('/keluarga/{id}/edit', [KeluargaController::class, 'edit'])->name('keluarga.edit');
-    Route::put('/keluarga/{id}', [KeluargaController::class, 'update'])->name('keluarga.update');
-    Route::get('/keluarga/{id}', [KeluargaController::class, 'show'])->name('keluarga.show');
-    Route::delete('/keluarga/{id}', [KeluargaController::class, 'destroy'])->name('keluarga.destroy');
+
 });
 
 // Default authentication routes
@@ -37,6 +33,11 @@ Route::middleware('auth')->group(function () {
 
     // Keluarga index
     Route::get('/keluarga', [KeluargaController::class, 'index'])->name('keluarga.index');
+    Route::post('/keluarga', [KeluargaController::class, 'store'])->name('keluarga.store');
+    Route::get('/keluarga/{id}/edit', [KeluargaController::class, 'edit'])->name('keluarga.edit');
+    Route::put('/keluarga/{id}', [KeluargaController::class, 'update'])->name('keluarga.update');
+    Route::get('/keluarga/{id}', [KeluargaController::class, 'show'])->name('keluarga.show');
+    Route::delete('/keluarga/{id}', [KeluargaController::class, 'destroy'])->name('keluarga.destroy');
 
     // Menampilkan daftar karyawan
     Route::get('/employees', [EmployeeController::class, 'index'])->name('employees.index');

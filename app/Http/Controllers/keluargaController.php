@@ -50,16 +50,6 @@ class KeluargaController extends Controller
         return view('keluarga.edit', compact('keluarga'));
     }
 
-    public function show($id)
-    {
-        $keluarga = DB::table('keluarga')->where('id', $id)->first();
-
-        if (!$keluarga) {
-            return redirect()->route('keluarga.index')->with('error', 'Keluarga not found.');
-        }
-
-        return view('keluarga.info', compact('keluarga'));
-    }
 
     public function update(Request $request, $id)
     {

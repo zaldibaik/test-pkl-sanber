@@ -46,7 +46,6 @@
                                             @method('DELETE')
                                             <button type="submit" class="btn btn-danger">Hapus</button>
                                         </form>
-                                        <a class="btn bg-gradient-success mb-3" href="{{ route('keluarga.show', $item->id) }}">Info</a>
                                     </div>
                                 </div>
                             </td>
