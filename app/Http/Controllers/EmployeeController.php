@@ -64,8 +64,14 @@ class EmployeeController extends Controller
     public function edit($id)
     {
         $employee = DB::table('employees')->where('id', $id)->first();
-        return view('employees.edit', compact('employee'));
+
+    if (!$employee) {
+        return redirect()->route('employees.index')->with('error', 'Employee not found.');
     }
+
+    return view('employees.edit', ['employee' => $employee]);
+    }
+
     public function show($id)
     {
         $employee = DB::table('employees')->where('id', $id)->first();
@@ -124,26 +130,5 @@ class EmployeeController extends Controller
     {
         DB::table('employees')->where('id', $id)->delete();
         return redirect()->route('employees.index');
-    }
-    public function up()
-    {
-        Schema::table('employees', function (Blueprint $table) {
-            $table->string('profile_photo_path')->nullable();
-        });
-    }
-
-    public function down()
-    {
-        Schema::table('employees', function (Blueprint $table) {
-            $table->dropColumn('profile_photo_path');
-        });
-    }
-    public function profile($id)
-    {
-        // Dapatkan data karyawan berdasarkan ID yang diberikan
-        $employee = DB::table('employees')->where('id', $id)->first();
-
-        // Kirim data karyawan ke view untuk ditampilkan
-        return view('employees.profile', ['employee' => $employee]);
     }
 }

@@ -12,11 +12,11 @@
                     <div class="card z-index-0 fadeIn3 fadeInBottom">
                         <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
                             <div class="bg-gradient-info shadow-info border-radius-lg py-3 pe-1">
-                                <h4 class="text-white font-weight-bolder text-center mt-2 mb-0">sign up</h4>
+                                <h4 class="text-white font-weight-bolder text-center mt-2 mb-0">Sign up</h4>
                                 <div class="row mt-3">
                                     <div class="col-2 text-center ms-auto">
-                                        <a class="btn btn-link px-3" href="{{ url('/') }}"">
-                                            <i  class=" fa fa-home text-white text-lg"></i>
+                                        <a class="btn btn-link px-3" href="{{ url('/') }}">
+                                            <i class="fa fa-home text-white text-lg"></i>
                                         </a>
                                     </div>
                                     <div class="col-2 text-center px-1">
@@ -86,24 +86,23 @@
                                             <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
                                         </div>
                                     </div>
-                                    <form method="POST" action="{{ route('login') }}">
-                                        @csrf
-
-                                        <div class="row mb-0">
-                                            <div class="col">
-                                                <!-- Hapus tag <a> yang tidak perlu -->
-                                                <button type="submit" class="btn bg-gradient-info w-100 my-4">
-                                                    {{ __('Register') }}
-                                                </button>
-                                            </div>
+                                    
+                                    <div class="row mb-0">
+                                        <div class="col">
+                                            <button type="submit" class="btn bg-gradient-info w-100 my-4">
+                                                {{ __('Register') }}
+                                            </button>
                                         </div>
-                                    </form>
-                                 </form>
+                                    </div>
+                                </form>
 
-                                    @if (Route::has('login'))
-                                    <a href="{{ route('login') }}" class="btn btn-gradient-info ">login</a>
-                                    @endif
-                               
+                                <div class="row mt-3">
+                                    <div class="col text-center">
+                                        @if (Route::has('register'))
+                                        <p class="text-muted">Already have an account? <a href="{{ route('login') }}" class="text-white font-weight-bold">{{ __('Login') }}</a></p>
+                                        @endif
+                                    </div>
+                                </div>
                             </div>
 
                         </div>
@@ -111,23 +110,24 @@
                 </div>
             </div>
         </div>
-        <footer class="footer position-absolute bottom-2 py-2 w-100">
-            <div class="container">
-                <div class="row align-items-center justify-content-lg-between">
-                    <div class="col-12 col my-auto">
-                        <div class="copyright text-center text-sm text-white text-lg-start">
-                            © <script>
-                                document.write(new Date().getFullYear())
+    </div>
 
-                            </script>,
-                            made with <i class="fa fa-heart" aria-hidden="true"></i> by
-                            <a href="#" class="font-weight-bold text-white" target="_blank">Zaldi</a>
-                            for a better web.
-                        </div>
+    <footer class="footer position-absolute bottom-2 py-2 w-100">
+        <div class="container">
+            <div class="row align-items-center justify-content-lg-between">
+                <div class="col-12 col my-auto">
+                    <div class="copyright text-center text-sm text-white text-lg-start">
+                        © <script>
+                            document.write(new Date().getFullYear())
+
+                        </script>,
+                        made with <i class="fa fa-heart" aria-hidden="true"></i> by
+                        <a href="#" class="font-weight-bold text-white" target="_blank">Zaldi</a>
+                        for a better web.
                     </div>
                 </div>
             </div>
-        </footer>
-    </div>
+        </div>
+    </footer>
 </main>
 @endsection

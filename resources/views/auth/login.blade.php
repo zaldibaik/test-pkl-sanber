@@ -4,7 +4,6 @@
 
 <main class="main-content">
     <div class="page-header bg-info align-items-start min-vh-100">
-
         <span class="mask bg-gradient-dark opacity-6"></span>
         <div class="container my-auto">
             <div class="row">
@@ -26,7 +25,6 @@
                                     </div>
                                     <div class="col-2 text-center me-auto">
                                         <a href="{{ url('/auth/google') }}">
-
                                             <i class="fa fa-google text-white text-lg"></i>
                                         </a>
                                     </div>
@@ -34,48 +32,37 @@
                             </div>
                         </div>
                         <div class="card-body">
-                            <div class="card-body">
-                                <form class="text-start" method="POST" action="{{ route('login') }}">
-                                    @csrf
+                            <form class="text-start" method="POST" action="{{ route('login') }}">
+                                @csrf
 
-                                    <div class="input-group input-group-outline">
-                                        <label for="email" class="input-group input-group-outline ">{{ __('Email Address') }}</label>
+                                <div class="input-group input-group-outline">
+                                    <label for="email" class="input-group input-group-outline ">{{ __('Email Address') }}</label>
 
-                                        <div class="col">
-                                            <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
-
-                                            @error('email')
-                                            <span class="invalid-feedback" role="alert">
-                                                <strong>{{ $message }}</strong>
-                                            </span>
-                                            @enderror
-                                        </div>
+                                    <div class="col">
+                                        <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
+                                        @error('email') <p class="text-danger text-xs pt-1"> {{$message}} </p>@enderror
                                     </div>
+                                </div>
 
-                                    <div class="input-group input-group-outline">
-                                        <label for="password" class="input-group input-group-outline mb-3">{{ __('Password') }}</label>
-
-                                        <div class="col">
-                                            <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
-
-                                            @error('password')
-                                            <span class="invalid-feedback" role="alert">
-                                                <strong>{{ $message }}</strong>
-                                            </span>
-                                            @enderror
-                                        </div>
+                                <div class="input-group input-group-outline">
+                                    <label for="password" class="input-group input-group-outline mb-3">{{ __('Password') }}</label>
+                                    <div class="col">
+                                        <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
+                                        @error('password')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                        @enderror
                                     </div>
+                                </div>
 
-                                    <div class="input-group input-group-outline">
-                                        <div class="form-check form-switch d-flex align-items-center mb-3">
-                                            <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
-                                            <label class="form-check-label mb-0 ms-3" for="rememberMe">{{ __('Remember Me') }}</label>
-                                        </div>
-
+                                <div class="input-group input-group-outline">
+                                    <div class="form-check form-switch d-flex align-items-center mb-3">
+                                        <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
+                                        <label class="form-check-label mb-0 ms-3" for="rememberMe">{{ __('Remember Me') }}</label>
                                     </div>
-                            </div>
+                                </div>
 
-                            <div class="row mb-0">
                                 <div class="row mb-0">
                                     <div class="col">
                                         <button type="submit" class="btn bg-gradient-info w-100 my-4">
@@ -83,13 +70,8 @@
                                         </button>
                                     </div>
                                 </div>
-                                @if (Route::has('register'))
-                                <a href="{{ route('register') }}" class="btn btn-gradient-info">Register</a>
-                                @endif
-                            </div>
                             </form>
                         </div>
-
                     </div>
                 </div>
             </div>

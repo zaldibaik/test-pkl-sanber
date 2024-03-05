@@ -15,6 +15,8 @@
             <input type="email" class="form-control" id="email" name="email" value="{{ $users->email }}">
         </div>
         <button type="submit" class="btn btn-primary">Update Admin</button>
+
     </form>
+    @push('page-css')
 </div>
 @endsection
